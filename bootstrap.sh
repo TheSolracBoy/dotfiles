@@ -65,14 +65,15 @@ elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" ]]; then
   echo "Detected Windows"
   echo "Only run in git bash terminal or zsh inside git bash"
 
+  #TERMINAL
+  curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+
   # VSCODE
   create_for_file "./vscode/keybinding.json" "$HOME/AppData/Roaming/Code/User/keybindings.json"
   create_for_file "./vscode/settings.json" "$HOME/AppData/Roaming/Code/User/settings.json"
 
   create_for_file "./.bashrc" "$HOME/.bashrc"
   create_for_file "./.zshrc" "$HOME/.zshrc"
-
-  # Example of creating a symlink on Windows
 
 
 else

@@ -14,8 +14,11 @@ compinit
 # End of lines added by compinstall
 
 
-#Constants
-target_folder="~/.erasedFiles"
+# Constants
+target_folder="$HOME/.erasedFiles"  # Use $HOME for home directory
+
+# Create the target folder if it doesn't exist
+mkdir -p "$target_folder"
 
 #PATH
 export PATH=$PATH:~/.local/bin
@@ -24,5 +27,6 @@ export PATH=$PATH:~/.local/bin
 alias rm="mv -t $target_folder"
 alias RM="\rm"
 
-#Automatic scripts
-~/dotfiles/shellScripts/erase_recycle_bin.sh
+#CaskaydiaMono Nerd FontAutomatic scripts
+~/dotfiles/shellScripts/erase_recycle_bin.sh &
+
