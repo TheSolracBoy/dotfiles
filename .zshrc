@@ -1,6 +1,5 @@
 # Created by newuser for 5.9
 
-export PATH=$PATH:~/.local/bin
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -13,3 +12,17 @@ zstyle :compinstall filename '/c/Users/carlo/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+
+#Constants
+target_folder="~/.erasedFiles"
+
+#PATH
+export PATH=$PATH:~/.local/bin
+
+#ALIAS
+alias rm="mv -t $target_folder"
+alias RM="\rm"
+
+#Automatic scripts
+~/dotfiles/shellScripts/erase_recycle_bin.sh
