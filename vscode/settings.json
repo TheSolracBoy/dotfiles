@@ -1,12 +1,13 @@
 {
+  "files.eol": "\n",
+  "codesnap.transparentBackground": true,
+  "codesnap.roundedCorners": true,
   "breadcrumbs.enabled": true,
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.horizontal": "hidden",
   "editor.fontSize": 17,
   "editor.matchBrackets": "never",
   "editor.hideCursorInOverviewRuler": true,
-  "editor.overviewRulerBorder": false,
-  "editor.glyphMargin": false,
   // This is for making the base-atelier-dune theme looks smooth on the variables
   "editor.tokenColorCustomizations": {
     //"variables": "#a6a28c",
@@ -24,7 +25,7 @@
   "editor.minimap.enabled": false,
   "editor.renderLineHighlight": "none",
   "editor.cursorStyle": "block",
-  "editor.lineNumbers": "off",
+  "editor.lineNumbers": "on",
   "editor.cursorBlinking": "solid",
   "editor.folding": false,
   "editor.autoClosingBrackets": "never",
@@ -205,6 +206,29 @@
       "commands": [
         {
           "command": "editor.action.marker.next"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "l",
+        "r"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.rename"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "k"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.showCommands"
         }
       ]
     },
@@ -417,26 +441,23 @@
     // "editorWarning.foreground": "#00000000",
     // "editorInfo.foreground": "#00000000",
   },
-  "workbench.colorTheme": "Gruvbox Dark Hard",
-  "rust-analyzer.inlayHints.parameterHints.enable": false,
-  "rust-analyzer.inlayHints.typeHints.enable": false,
-  "rust-analyzer.inlayHints.typeHints.hideClosureInitialization": false,
-  "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": false,
-  "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": false,
-  "rust-analyzer.inlayHints.reborrowHints.enable": "never",
-  "rust-analyzer.inlayHints.chainingHints.enable": false,
-  "rust-analyzer.inlayHints.bindingModeHints.enable": false,
-  "rust-analyzer.inlayHints.renderColons": false,
-  "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "never",
-  "rust-analyzer.inlayHints.closingBraceHints.enable": false,
-  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "never",
-  "rust-analyzer.inlayHints.closingBraceHints.minLines": 0,
-  "rust-analyzer.completion.callable.snippets": "none",
-  "rust-analyzer.semanticHighlighting.doc.comment.inject.enable": false,
-  "rust-analyzer.procMacro.ignored": {},
+  "workbench.colorTheme": "JetBrains New UI Dark Theme",
   "workbench.iconTheme": "gruvbox-material-icon-theme",
   "files.autoSave": "onFocusChange",
-  "window.zoomLevel": 1,
   "workbench.editor.enablePreview": false,
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "errorLens.enabledDiagnosticLevels": [
+    "warning",
+    "info"
+  ],
+  "errorLens.enabled": true,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "svelte.enable-ts-plugin": true,
+  // "rust-analyzer.inlayHints.typeHints.enable": false,
 }

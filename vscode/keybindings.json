@@ -77,7 +77,7 @@
     },
     {
         "key": "ctrl+p",
-        "comman ": "workbench.action.quickOpenNavigatePrevious",
+        "command": "workbench.action.quickOpenNavigatePrevious",
         "when": "inQuickOpen"
     },
     {
