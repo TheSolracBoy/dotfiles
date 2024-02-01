@@ -2,6 +2,7 @@
 
 # Check if the target folder is provided as a command-line argument
 if [ -z "$1" ]; then
+echo "as"
     exit 1
 fi
 

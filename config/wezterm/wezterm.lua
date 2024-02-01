@@ -11,16 +11,16 @@ if wezterm.config_builder then
 end
 
 config.window_padding = {
-	left = 6,
-	right = 6,
-	top = 0,
+	left = 10,
+	right = 10,
+	top = 20,
 	bottom = 0,
 }
 -- JetbrainsMono Nerd Font
 -- This is where you actually apply your config choices
 -- config.font = wezterm.font 'CaskaydiaCove Nerd Font'
 -- config.font = wezterm.font("CaskaydiaCove Nerd Font", { weight = "Regular" })
-config.font = wezterm.font("ComicCodeLigatures Nerd Font", { weight = 400 })
+-- config.font = wezterm.font("ComicCodeLigatures Nerd Font", { weight = 400 })
 -- For example, changing the color scheme:
 -- config.color_scheme = 'AdventureTime'
 config.font_size = 14

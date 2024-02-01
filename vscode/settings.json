@@ -189,6 +189,18 @@
       "before": [
         "<leader>",
         "l",
+        "f"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.formatDocument"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "l",
         "k"
       ],
       "commands": [
@@ -412,10 +424,10 @@
   "go.testEnvFile": "",
   "go.toolsManagement.autoUpdate": true,
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
@@ -441,7 +453,7 @@
     // "editorWarning.foreground": "#00000000",
     // "editorInfo.foreground": "#00000000",
   },
-  "workbench.colorTheme": "JetBrains New UI Dark Theme",
+  "workbench.colorTheme": "Fleet Dark",
   "workbench.iconTheme": "gruvbox-material-icon-theme",
   "files.autoSave": "onFocusChange",
   "workbench.editor.enablePreview": false,
@@ -459,5 +471,8 @@
     "scminput": false
   },
   "svelte.enable-ts-plugin": true,
+  "editor.fontFamily": "ComicCodeLigatures Nerd Font",
+  "git.autofetch": true,
+  // "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   // "rust-analyzer.inlayHints.typeHints.enable": false,
 }
