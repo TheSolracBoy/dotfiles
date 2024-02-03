@@ -5,7 +5,7 @@
   "breadcrumbs.enabled": true,
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.horizontal": "hidden",
-  "editor.fontSize": 17,
+  "editor.fontSize": 14,
   "editor.matchBrackets": "never",
   "editor.hideCursorInOverviewRuler": true,
   // This is for making the base-atelier-dune theme looks smooth on the variables
@@ -71,6 +71,18 @@
     },
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
+    //easy motion
+    {
+      "before": [
+        "s"
+      ],
+      "after": [
+        "<leader>",
+        "<leader>",
+        "2",
+        "s",
+      ]
+    },
     {
       "before": [
         ";",
@@ -100,6 +112,14 @@
         {
           "command": "workbench.explorer.fileView.focus"
         }
+      ]
+    },
+    {
+      "before": [
+        "U",
+      ],
+      "after": [
+        "<C-r>",
       ]
     },
     {
@@ -453,9 +473,9 @@
     // "editorWarning.foreground": "#00000000",
     // "editorInfo.foreground": "#00000000",
   },
-  "workbench.colorTheme": "Fleet Dark",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.iconTheme": "gruvbox-material-icon-theme",
-  "files.autoSave": "onFocusChange",
+  // "files.autoSave": "onFocusChange",
   "workbench.editor.enablePreview": false,
   "workbench.activityBar.location": "hidden",
   "terminal.integrated.defaultProfile.windows": "PowerShell",
@@ -471,8 +491,12 @@
     "scminput": false
   },
   "svelte.enable-ts-plugin": true,
-  "editor.fontFamily": "ComicCodeLigatures Nerd Font",
+  // "editor.fontFamily": "ComicCodeLigatures Nerd Font",
   "git.autofetch": true,
-  // "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "lldb.library": "/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Versions/A/LLDB",
+  "lldb.launch.expressions": "native",
+  "editor.snippetSuggestions": "top",
+  "vim.smartRelativeLine": true
   // "rust-analyzer.inlayHints.typeHints.enable": false,
 }
