@@ -72,15 +72,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
   LCTL_T(KC_ESC),    (KC_A),    (KC_R),    (KC_S),    (KC_T),    KC_G,                    KC_M,    (KC_N),    (KC_E),    (KC_I), (KC_O),          LCTL_T(KC_SCLN),
 //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-  OS_SHFT,           KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                                              KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,       OS_CMD,
+  OS_CMD,           KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                                              KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,       OS_CMD,
 //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                              LA_NUM,   OS_SHFT,  LA_NAV,     KC_BSPC,  LA_SYM , KC_DEL
+                              LA_NUM,   LA_NUM,  LA_NAV,     KC_BSPC,  LA_SYM , KC_DEL
                               //`--------------------------'  `--------------------------'
 ),
 
   [NAV] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_ENT,    KC_9,    KC_0, KC_BSPC,
+       _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    OS_SHFT,    KC_BSPC,    KC_0, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_ENT, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_7, KC_8, KC_9, KC_BSLS, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_4, KC_5, KC_6, KC_PPLS, _______,
+      _______, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, XXXXXXX,                         XXXXXXX, KC_4, KC_5, KC_6, KC_PPLS, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,  KC_1, KC_2, KC_3, KC_PAST,   _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -169,6 +169,69 @@ bool shift_have_been_used = false;
 bool shift_habe_been_released = false;
 
 
+bool verify_shift(uint16_t keycode, keyrecord_t *record){
+
+    if (is_oneshot_cancel_key(keycode) && caps_lock_active) {
+                register_code(KC_CAPS); 
+                if (caps_lock_active) {
+            unregister_code(KC_LSFT); 
+                    caps_lock_active = false;
+                    shift_pressed_once = false;
+                    return true;
+                
+                }
+
+    
+    }
+
+
+    if (keycode != OS_SHFT && !caps_lock_active ) {
+        if (is_oneshot_ignored_key(keycode)) {
+            return true;
+        }
+
+
+        if (shift_have_been_used && shift_habe_been_released) {
+            unregister_code(KC_LSFT); 
+        }
+        shift_pressed_once = false;
+        shift_have_been_used = true;
+    }
+
+
+   if (keycode == OS_SHFT ) {
+        if ( record->event.pressed) {
+
+             shift_have_been_used = false;
+             shift_habe_been_released=false;
+             register_code(KC_LSFT); // Activar Caps Lock
+
+
+            if (shift_pressed_once) {
+                register_code(KC_CAPS); // Activar
+                if (caps_lock_active) {
+                    caps_lock_active = false;
+                    shift_pressed_once = false;
+                    shift_have_been_used = true;
+                    return true;
+                
+                }
+                caps_lock_active = true;
+                return true;
+            }
+
+
+             shift_pressed_once = true; // Marcar que Shift se ha presionado una vez
+
+        }
+        else{
+        shift_habe_been_released=true;
+        }
+        
+    } 
+    return true;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // update_swapper(
     //     &sw_win_active, KC_LGUI, KC_TAB, SW_WIN,
@@ -183,10 +246,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         keycode, record
     );
 
-    update_oneshot(
-        &os_shft_state, KC_LSFT, OS_SHFT,
-        keycode, record
-    );
+    // update_oneshot(
+    //     &os_shft_state, KC_LSFT, OS_SHFT,
+    //     keycode, record
+    // );
     update_oneshot(
         &os_alt_state, KC_LALT, OS_ALT,
         keycode, record
@@ -196,54 +259,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         keycode, record
     );
 
+    verify_shift(keycode, record);
 
 
 
-   //  if (keycode != OS_SHFT && !caps_lock_active ) {
-   //      if (is_oneshot_ignored_key(keycode)) {
-   //          return true;
-   //      
-   //      }
-   //
-   //
-   //      if (shift_have_been_used && shift_habe_been_released) {
-   //          unregister_code(KC_LSFT); 
-   //      }
-   //      shift_pressed_once = false;
-   //      shift_have_been_used = true;
-   //  }
-   //
-   //
-   // if (keycode == OS_SHFT ) {
-   //      if ( record->event.pressed) {
-   //
-   //           shift_have_been_used = false;
-   //           shift_habe_been_released=false;
-   //           register_code(KC_LSFT); // Activar Caps Lock
-   //
-   //
-   //          if (shift_pressed_once) {
-   //              register_code(KC_CAPS); // Activar
-   //              if (caps_lock_active) {
-   //                  caps_lock_active = false;
-   //                  shift_pressed_once = false;
-   //                  shift_have_been_used = true;
-   //                  return true;
-   //              
-   //              }
-   //              caps_lock_active = true;
-   //              return true;
-   //          }
-   //
-   //
-   //           shift_pressed_once = true; // Marcar que Shift se ha presionado una vez
-   //
-   //      }
-   //      else{
-   //      shift_habe_been_released=true;
-   //      }
-   //      
-   //  } 
     return true;
 }
-
