@@ -3,17 +3,18 @@
 Welcome to my Blazingly fast setup 🚀💨
 ## Tool Stack
 
-- **Slick Shell**: Fish Shell + Starship.
-- **Editor**: Blazingly fast neovim, [conf](https://github.com/charlieman2700/neovim).
-- **Terminal**: Wezterm and TMUX.
-- **Keyboard**: Corne keyboard with Colemak DH Layout, callum oneshot keys + custom shift handling code.
-- **Git**: Lazygit with ydiff.
+- **Slick Shell**: Fish Shell + Starship
+- **Editor**: Blazingly fast neovim, [conf](https://github.com/charlieman2700/neovim)
+- **Terminal**: Wezterm and TMUX
+- **Keyboard**: Corne keyboard with Colemak DH Layout, callum oneshot keys + custom shift handling code
+- **Git**: Lazygit with ydiff
 
 ## Requirements
 
-1. **Clone & Deploy**: Quickly get up and running by cloning this repository and deploying with a simple script.
-   
-2. **Tweak & Personalize**: Make it your own! Customize configurations to reflect your unique style and workflow.
+- **Req**: Lazygit, Neovim, Fish, Starship, Zoxide, Tmux (+TPM), ydiff, Wezterm
+- **Optional**: Kmonad (for mapping non flashable keyboards/laptops stock keybaords)
+- **Optional**: QMK for Flashing corne keyboard
+
 
 ## Screenshots
 ### Neovim
