@@ -1,12 +1,12 @@
 # Charlieman Dotfiles
 
-Welcome to my world of efficient coding and personalized setups! 
-
+Welcome to my Blazingly fast setup 🚀💨
 ## Tool Stack
 
 - **Slick Shell**: Fish Shell + Starship.
-- **Editor**: Blazingly fast neovim.
-- **Terminal**: Wezterm.
+- **Editor**: Blazingly fast neovim, [conf](https://github.com/charlieman2700/neovim).
+- **Terminal**: Wezterm and TMUX.
+- **Keyboard**: Corne keyboard with Colemak DH Layout, callum oneshot keys + custom shift handling code.
 - **Git**: Lazygit with ydiff.
 
 ## Requirements
@@ -16,7 +16,13 @@ Welcome to my world of efficient coding and personalized setups!
 2. **Tweak & Personalize**: Make it your own! Customize configurations to reflect your unique style and workflow.
 
 ## Screenshots
-### Tmux and Lazygit
+### Neovim
+![Fish](https://github.com/charlieman2700/neovim/blob/main/images/sc1.png)
+
+### Fish
+![Fish](images/fish.png)
+
+### Lazygit
 ![Screenshot 1](images/lazygit.png)
 
 
