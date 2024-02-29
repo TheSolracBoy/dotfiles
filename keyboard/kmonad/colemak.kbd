@@ -35,10 +35,12 @@ esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   )
 
 (defalias
- ;; num  (layer-toggle numbers) ;; Bind num to a button that switches to a layer
-  nav  (layer-toggle nav) ;; Bind num to a button that switches to a layer
+ ;; num  (layer-toggle numbers)
+  nav  (layer-toggle nav) 
+  save_pinky  (layer-toggle save_pinky)
   kil  C-A-del                ;; Bind kil to a button that Ctrl-Alt-deletes
-  znav (tap-next z @nav)
+  zave (tap-next z @save_pinky)
+  anav  (tap-next a @nav)
   
   Cesc (tap-next esc lctl)
 
@@ -53,18 +55,27 @@ esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
 esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv  1        2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q        w    f    p    b    j    l    u    y    ;    [    ]    \
- @Cesc a        r    s    t    g    m    n    e    i    o    '    ret
-  lsft @znav    x    c    d    v    k    h    ,    .    /    rsft up
+ @Cesc @anav        r    s    t    g    m    n    e    i    o    '    ret
+  lsft  z       x    c    d    v    k    h    ,    .    /    rsft up
   fn   lctl lalt lmet           spc            rmet ralt left down rght
 )
 
 
 
 (deflayer nav
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    XX   /    7    8    9    -    _    _    _
-  _    _    _        _    XX   @lt  @dwn  @up   @rt    _    _ _ _
+  _    _    _    _    _    _    _    _      _    _    _    _    _    _
+  _    _    _    _    _    _    _    _      _    _    _    _    _    _
+  _    _    _    _    _    _    _    bspc   9    _    _    _    _    _
+  _    _    _   _    XX   @lt  @dwn  @up   @rt   ent    _ _ _
   _    _    \(   \)   .    XX   0    1    2    3    _    _
+  _   _   _    _              _              _    _    _    _ _
+)
+
+(deflayer save_pinky 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _        _    XX    _  _ bspc       _   ent  _ _ _
+  _    _    _    _    _    _    _    _    -    -     _    _
   _   _   _    _              _              _    _    _    _ _
 )
