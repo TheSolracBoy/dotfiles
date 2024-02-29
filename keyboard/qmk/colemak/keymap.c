@@ -36,7 +36,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  #define TABR G(S(KC_RBRC))
  #define SPCL A(G(KC_LEFT))
  #define SPC_R A(G(KC_RGHT))
- #define LA_SYM MO(SYM)
+ #define LA_SYM LT(SYM,KC_ENT)
  // #define LA_SYM MO(SYM)
  #define LA_NAV LT(NAV,KC_SPC)
 #define LA_NUM LT(NUM,KC_TAB)
@@ -72,17 +72,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
   LCTL_T(KC_ESC),    (KC_A),    (KC_R),    (KC_S),    (KC_T),    KC_G,                    KC_M,    (KC_N),    (KC_E),    (KC_I), (KC_O),          LCTL_T(KC_SCLN),
 //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-  OS_CMD,           KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                                              KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,       OS_CMD,
+  OS_SHFT,           KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                                              KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,       OS_SHFT,
 //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                              LA_NUM,   LA_NUM,  LA_NAV,     KC_BSPC,  LA_SYM , KC_DEL
+                              OS_CMD,   LA_NUM,  LA_NAV,     KC_BSPC,  LA_SYM , OS_CMD
                               //`--------------------------'  `--------------------------'
 ),
 
   [NAV] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    OS_SHFT,    KC_BSPC,    KC_0, KC_BSPC,
+       _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_ENT,    KC_BSPC,    KC_0, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_ENT, _______,
+      _______, OS_CMD, OS_ALT, OS_CTRL, OS_SHFT, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_DEL, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_BRMU, XXXXXXX, KC_CAPS, KC_MUTE, KC_VOLD,                   KC_VOLU, KC_MPRV, KC_MPRV, KC_MPLY, KC_MNXT, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
