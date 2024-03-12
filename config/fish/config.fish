@@ -16,13 +16,28 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/Cellar/:$PATH"
 
 
+#set nvim in colemak mode or in qwertyMode
+
+function start_nvim_with_qwerty
+    set -x COLEMAK_MODE "false"
+    nvim
+end
+
+function start_nvim_with_colemak
+    set -x COLEMAK_MODE "true"
+    nvim
+end
+
 
 #requires zoxide and starship
 zoxide init fish | source
 starship init fish | source
 
-alias vim nvim
+alias vim 'start_nvim_with_colemak'
+alias vimq 'start_nvim_with_qwerty'
 
 
 #requires kmonad executable on path
-alias la "sudo kmonad ~/dotfiles/keyboard/kmonad/colemak.kbd"
+alias qwerty "sudo kmonad ~/dotfiles/keyboard/kmonad/qwerty.kbd"
+alias dvorack "sudo kmonad ~/dotfiles/keyboard/kmonad/dvorak.kbd"
+alias colemak "sudo kmonad ~/dotfiles/keyboard/kmonad/colemak.kbd"
