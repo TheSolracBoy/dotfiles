@@ -18,13 +18,14 @@ config.window_padding = {
 }
 -- JetbrainsMono Nerd Font
 -- This is where you actually apply your config choices
--- config.font = wezterm.font 'CaskaydiaCove Nerd Font'
--- config.font = wezterm.font("CaskaydiaCove Nerd Font", { weight = "Regular" })
+config.font = wezterm.font("JetbrainsMono Nerd Font", { weight = "Medium" })
+-- config.font = wezterm.font("MesloLGS Nerd Font", { weight = "Bold" })
+-- config.font = wezterm.font("CaskaydiaCode Nerd Font", { weight = "Regular" })
 -- config.font = wezterm.font("ComicCodeLigatures Nerd Font", { weight = 400 })
 -- For example, changing the color scheme:
 -- config.color_scheme = 'AdventureTime'
 config.font_size = 14
-config.line_height = 0.885
+config.line_height = 1.19
 config.window_decorations = "RESIZE"
 config.adjust_window_size_when_changing_font_size = false
 config.initial_rows = 60
@@ -38,7 +39,7 @@ config.hide_tab_bar_if_only_one_tab = true
 -- config.color_scheme = 'rose-pine'
 -- config.color_scheme = 'Cai (Gogh)'
 -- config.color_scheme = 'carbonfox'
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "Catppuccin Macchiato"
 -- config.color_scheme = 'Gotham (Gogh)'
 --config.window_background_opacity = 0.8
 --

@@ -9,8 +9,8 @@
 # OPT_ENABLE = yes
 #
 # SRC += callum.c
-SRC += oneshot.c
-SRC += swapper.c
+# SRC += oneshot.c
+# SRC += swapper.c
 # SRC += custom_shift.c
 
 
