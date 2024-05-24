@@ -36,7 +36,7 @@ alias vimc 'start_nvim_with_colemak'
 alias vimq 'start_nvim_with_qwerty'
 alias vim nvim
 
-alias pomodoro "timer 2 && terminal-notifier -message 'TAKE CARE OF YOUR EYES' \
+alias pomodoro "timer 30m && terminal-notifier -message 'TAKE CARE OF YOUR EYES' \
     -title 'Work timer is up! Take a break'\
     -sound Crystal "
 
