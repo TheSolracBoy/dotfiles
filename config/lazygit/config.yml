@@ -6,4 +6,4 @@ gui:
 git:
   paging:
     colorArg: never
-    pager: ydiff -p cat -s --wrap --width={{columnWidth}}
+    pager: ydiff -p cat -s  --width={{columnWidth}}
