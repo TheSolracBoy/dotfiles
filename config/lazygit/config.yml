@@ -8,9 +8,10 @@ git:
     pager: ydiff -p cat -s  --width={{columnWidth}}
 
 customCommands:
-  - key: "<c-v>"
-    context: "global"
+  - key: "C"
+    context: "files"
     description: "Create new conventional commit"
+    stream: true
     prompts:
       - type: "menu"
         key: "Type"
@@ -69,5 +70,10 @@ customCommands:
         key: "Confirm"
         title: "Commit"
         body: "Are you sure you want to commit?"
-    command: "git commit --message '{{.Form.Type}}({{.Form.Scope}}){{.Form.Breaking}}: {{.Form.Title}}\n{{.Form.Description}}'"
+        command: |
+          {{- $scope := "" }}
+          {{- if ne .Form.Scope "" }}
+          {{- $scope = printf "(%s)" .Form.Scope }}
+          {{- end }}
+          git commit --message "{{.Form.Type}}{{$scope}}{{.Form.Breaking}}: {{.Form.Title}}\n{{.Form.Description}}"'
     loadingText: "Creating conventional commit..."
