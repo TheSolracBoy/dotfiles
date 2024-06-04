@@ -1,4 +1,3 @@
-
 gui:
   sidePanelWidth: 0.2 # gives you more space to show things side-by-side
   scrollHeight: 10 # how many lines you scroll by
@@ -59,12 +58,16 @@ customCommands:
         key: "Breaking"
         initialValue: ""
       - type: "input"
-        title: "message"
-        key: "Message"
+        title: "Title"
+        key: "Title"
+        initialValue: ""
+      - type: "input"
+        title: "Description"
+        key: "Description"
         initialValue: ""
       - type: "confirm"
         key: "Confirm"
         title: "Commit"
         body: "Are you sure you want to commit?"
-    command: "git commit --message '{{.Form.Type}}{{.Form.Scope}}{{.Form.Breaking}}: {{.Form.Message}}'"
+    command: "git commit --message '{{.Form.Type}}{{.Form.Scope}}{{.Form.Breaking}}: {{.Form.Title}}\n{{.Form.Description}}'"
     loadingText: "Creating conventional commit..."
