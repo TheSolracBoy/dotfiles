@@ -1,4 +1,4 @@
-# TheSolracBoy Dotfiles
+# CharlieBytex Dotfiles
 
 Welcome to my Blazingly fast setup 🚀💨
 ## Tool Stack
