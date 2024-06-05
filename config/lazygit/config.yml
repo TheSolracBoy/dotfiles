@@ -8,7 +8,7 @@ git:
     pager: ydiff -p cat -s  --width={{columnWidth}}
 
 customCommands:
-  - key: "C"
+  - key: "c"
     command: "ccgit"
     context: "files"
     subprocess: true
