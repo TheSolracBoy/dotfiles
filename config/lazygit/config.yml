@@ -70,10 +70,16 @@ customCommands:
         key: "Confirm"
         title: "Commit"
         body: "Are you sure you want to commit?"
-        command: |
-          {{- $scope := "" }}
-          {{- if ne .Form.Scope "" }}
-          {{- $scope = printf "(%s)" .Form.Scope }}
-          {{- end }}
-          git commit --message "{{.Form.Type}}{{$scope}}{{.Form.Breaking}}: {{.Form.Title}}\n{{.Form.Description}}"'
+    command: |
+      {{- $scope := "" }}
+      {{- if ne .Form.Scope "" }}
+      {{- $scope = printf "(%s)" .Form.Scope }}
+      {{- end }}
+      {{- if eq .Form.Description "" }}
+      git commit --message "{{.Form.Type}}{{$scope}}{{.Form.Breaking}}: {{.Form.Title}}"
+      {{else}}
+      git commit --message "{{.Form.Type}}{{$scope}}{{.Form.Breaking}}: {{.Form.Title}}
+      {{.Form.Description}}
+      "
+      {{- end }}
     loadingText: "Creating conventional commit..."
