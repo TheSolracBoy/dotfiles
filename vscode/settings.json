@@ -464,7 +464,7 @@
     // "editorWarning.foreground": "#00000000",
     // "editorInfo.foreground": "#00000000",
   },
-  "workbench.colorTheme": "Alt Catppuccin Mocha",
+  "workbench.colorTheme": "Alt Catppuccin Macchiato",
   "workbench.iconTheme": "gruvbox-material-icon-theme",
   // "files.autoSave": "onFocusChange",
   "workbench.editor.enablePreview": false,
@@ -510,4 +510,8 @@
       " .*\\.\\s*?[\"]([^\"'`]*).*?"
     ],
   ],
+  "[django-html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "prisma.showPrismaDataPlatformNotification": false,
 }

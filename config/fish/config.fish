@@ -16,7 +16,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/Cellar/:$PATH"
-
+export PATH="/usr/local/Cellar/postgresql@15/15.7/bin:$PATH"
 
 #set nvim in colemak mode or in qwertyMode
 
@@ -32,6 +32,10 @@ end
 #requires zoxide and starship
 zoxide init fish | source
 starship init fish | source
+
+alias cdd='cd "$(fd --type d --strip-cwd-prefix | fzf)"'
+alias nve='nvim "$(fd --type f --strip-cwd-prefix | fzf)"'
+
 
 alias vimc 'start_nvim_with_colemak'
 alias vimq 'start_nvim_with_qwerty'
