@@ -32,9 +32,60 @@ end
 #requires zoxide and starship
 zoxide init fish | source
 starship init fish | source
+function dev
+    # Save the current directory
+    set prev_dir (pwd)
 
-alias cdd='cd "$(fd --type d --strip-cwd-prefix | fzf)"'
-alias nve='nvim "$(fd --type f --strip-cwd-prefix | fzf)"'
+    # Run fzf to select a directory from ~/dev
+    set selected_dir (cd ~/dev; fdfind --type d --strip-cwd-prefix | fzf)
+
+    # Check the exit status of fzf
+    if test $status -eq 0
+        # If fzf was successful (i.e., a selection was made), change to the selected directory
+        cd ~/dev/$selected_dir
+    else
+        # If fzf was cancelled (non-zero exit status), change to the previous directory
+        cd $prev_dir
+    end
+end
+ 
+function cdd 
+    set selected_dir (cd ~; fdfind -H --type d --strip-cwd-prefix | fzf)
+    # Check the exit status of fzf
+    if test $status -eq 0
+        # If fzf was successful (i.e., a selection was made), change to the selected directory
+        cd ~/$selected_dir
+    end
+end
+    
+
+function n
+    # Save the current directory
+    set prev_dir (pwd)
+
+    # Run fzf to select a directory from ~/dev
+    set selected_file (cd ~; fdfind -H --type f --strip-cwd-prefix | fzf)
+
+    # Check the exit status of fzf
+    if test $status -eq 0
+        # If fzf was successful (i.e., a selection was made), change to the selected directory
+        nvim ~/$selected_file
+    else
+        # If fzf was cancelled (non-zero exit status), change to the previous directory
+        cd $prev_dir
+    end
+end
+
+function clone
+    set repo (gh repo list --limit 100 | fzf --prompt="Select a repository to clone: " | awk '{print $1}')
+    if test -n "$repo"
+        gh repo clone "$repo"
+    else
+        echo "No repository selected."
+    end
+end
+
+
 
 
 alias vimc 'start_nvim_with_colemak'
