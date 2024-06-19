@@ -18,7 +18,7 @@ config.window_padding = {
 }
 -- JetbrainsMono Nerd Font
 -- This is where you actually apply your config choices
-config.font = wezterm.font("JetbrainsMono Nerd Font", { weight = "Medium" })
+config.font = wezterm.font("JetbrainsMono Nerd Font", { weight = "Bold" })
 -- config.font = wezterm.font("MesloLGS Nerd Font", { weight = "Bold" })
 -- config.font = wezterm.font("CaskaydiaCode Nerd Font", { weight = "Regular" })
 -- config.font = wezterm.font("ComicCodeLigatures Nerd Font", { weight = 400 })
